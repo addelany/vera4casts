@@ -9,7 +9,15 @@ library(lubridate)
 library(vera4castHelpers)
 library(zoo)
 
+if(exists("curr_reference_datetime") == FALSE){
+  
 curr_reference_datetime <- Sys.Date()
+
+}else{
+
+    print('Running Reforecast')
+
+}
 
 #Load data formatting functions
 data.format.functions <- list.files("./code/function_library/nettar_functions")

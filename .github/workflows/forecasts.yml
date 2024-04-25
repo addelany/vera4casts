@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 
-name: MEL-forecasts
+name: NNETAR-forecasts
 
 jobs:
   docker:
