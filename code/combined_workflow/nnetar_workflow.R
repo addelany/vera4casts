@@ -31,7 +31,7 @@ targets <- "https://renc.osn.xsede.org/bio230121-bucket01/vera4cast/targets/proj
 #target_variable <- 'DO_mgL_mean'
 #target_variable <- 'Secchi_m_sample'
 
-target_variables <- c('Temp_C_mean', "DO_mgL_mean", "Secchi_m_sample", "fDOM_QSU_mean","Chla_ugL_mean")
+target_variables <- c('Temp_C_mean', "DO_mgL_mean", "Secchi_m_sample", "fDOM_QSU_mean")
 
 prediction_df <- data.frame()
 
