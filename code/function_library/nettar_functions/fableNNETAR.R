@@ -35,7 +35,7 @@ fableNNETAR <- function(data, target_var, reference_datetime, forecast_horizon){
   
   #build output df
   df.out <- data.frame(site_id = df$site_id,
-                       model_id = "NNETAR",
+                       model_id = "fableNNETAR_focal",
                        datetime = df$datetime,
                        variable = target_var,
                        depth_m = 1.6,
@@ -66,7 +66,7 @@ fableNNETAR <- function(data, target_var, reference_datetime, forecast_horizon){
                reference_datetime = reference_datetime,
                family = "ensemble",
                variable = target_var,
-               model_id = "fableNNETAR",
+               model_id = "fableNNETAR_focal",
                duration = "P1D",
                project_id = "vera4cast",
                depth_m = ifelse(site_id == "fcre",1.6,1.5)) %>%
