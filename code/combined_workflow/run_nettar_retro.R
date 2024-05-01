@@ -21,7 +21,7 @@ library(aws.s3)
 
 # check for any missing forecasts
 message("==== Checking for missed forecasts ====")
-challenge_model_name <- 'fableNETTAR_focal'
+challenge_model_name <- 'fableNNETAR_focal'
 
 # Dates of forecasts 
 today <- paste(Sys.Date() - days(2), '00:00:00')
