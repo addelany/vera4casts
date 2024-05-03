@@ -33,14 +33,21 @@ s3 <- arrow::s3_bucket("bio230121-bucket01/vera4cast/inventory/catalog",
                        endpoint_override = "renc.osn.xsede.org",
                        anonymous = TRUE)
 
-submitted_forecasts_df <- arrow::open_dataset(s3) |> collect()
+#submitted_forecasts_df <- arrow::open_dataset(s3) |> collect()
 
 # is that forecast present in the bucket?
 for (i in 1:nrow(this_year)) {
   
-  models_submitted <- unique(submitted_forecasts_df %>%
-                               filter(reference_date == this_year$date[i]) %>%
-                               pull(model_id))
+  s3_forecasts_df <- arrow::open_dataset(s3) |> 
+    filter(reference_date == lubridate::as_datetime(this_year$date[i])) |> 
+    select(model_id) |> 
+    collect()
+  
+  # models_submitted <- unique(submitted_forecasts_df %>%
+  #                              filter(reference_date == this_year$date[i]) %>%
+  #                              pull(model_id))
+  
+  models_submitted <- unique(s3_forecasts_df)
   
   this_year$exists[i] <- ifelse(challenge_model_name %in% models_submitted,T,F)
   
